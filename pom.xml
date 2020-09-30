@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.example</groupId>
-	<artifactId>flow-corso-2020</artifactId>
+	<artifactId>webflow-2020-06</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-webflow</artifactId>
-			<version>2.4.8.RELEASE</version>
+			<version>2.5.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -111,14 +111,14 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>4.3.28.RELEASE</version>
+				<version>5.0.18.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-releasetrain</artifactId>
-				<version>Ingalls-SR23</version>
+				<version>Kay-SR14</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
@@ -126,6 +126,6 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>flow-corso-2020</finalName>
+		<finalName>webflow-2020-06</finalName>
 	</build>
 </project>
