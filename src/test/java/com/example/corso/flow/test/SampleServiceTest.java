@@ -3,6 +3,7 @@ package com.example.corso.flow.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import com.example.corso.flow.domain.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,50 @@ public class SampleServiceTest {
 		// mi aspetto che "Ciao Pietro!" sia il risultato quando invoco ...
 		assertEquals("Ciao Pietro!", sampleService.greetName("Pietro"));
 		assertEquals("Ciao Giulia!", sampleService.greetName("Giulia"));
+	}
+
+	@Test
+	public void greetPersonTestIcelander() {
+		Person icelander = new Person();
+		icelander.setFirstName("Bjoerk");
+		icelander.setPatronymic("Gudhmundsdottir");
+		assertEquals("Ciao Bjoerk!", sampleService.greetPerson(icelander));
+	}
+
+	@Test
+	public void greetPersonTestRussian() {
+		Person russian = new Person();
+		russian.setFirstName("Michail");
+		russian.setPatronymic("Sergeevic");
+		russian.setLastName("Gorbachev");
+		assertEquals("Ciao Michail Sergeevic!", sampleService.greetPerson(russian));
+	}
+
+	@Test
+	public void greetPersonTestItalian() {
+		Person italian = new Person();
+		italian.setFirstName("Grazia");
+		italian.setLastName("Deledda");
+		assertEquals("Ciao Grazia!", sampleService.greetPerson(italian));
+	}
+
+
+	@Test
+	public void greetPersonTestKo1() {
+		Person noPerson = new Person();
+		noPerson.setPatronymic("Finto");
+		assertEquals("Errore", sampleService.greetPerson(noPerson));
+	}
+
+	@Test
+	public void greetPersonTestKo2() {
+		Person noPerson = new Person();
+		noPerson.setFirstName("Finto");
+		assertEquals("Errore", sampleService.greetPerson(noPerson));
+	}
+
+	@Test
+	public void greetPersonTestKo3() {
+		assertEquals("Errore", sampleService.greetPerson(null));
 	}
 }
