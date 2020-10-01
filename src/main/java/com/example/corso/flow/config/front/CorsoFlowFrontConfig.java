@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 //Decido di usare il progetto spring-webmvc con l'annotation @EnableWebMvc
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = "com.example.corso.flow.controller")
-public class CorsoFlowFrontConfig extends WebMvcConfigurerAdapter {
+public class CorsoFlowFrontConfig implements WebMvcConfigurer {
 
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("serial")
 public class GracefulStopServlet extends HttpServlet {
 
     private Tomcat tomcat;
