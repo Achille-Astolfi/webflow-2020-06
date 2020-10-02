@@ -1,4 +1,4 @@
-package com.example.corso.flow.test;
+package com.example.corso.flow.service.test;
 
 import com.example.corso.flow.config.test.ServiceTestConfig;
 import com.example.corso.flow.service.DoubleService;
