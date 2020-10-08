@@ -5,7 +5,7 @@ services:
     image: java
     volumes:
       - '~\.m2\repository:/root/.m2/repository'
-      - '~\git\webflow-2020-06:/var/app'
+      - 'C:\Users\Achille\IdeaProjects\webflow-2020-06:/var/app'
     command: ['java', '-Xms1g', '-jar', '/var/app/target/webflow-2020-06-0.0.1-SNAPSHOT.jar']
     ports:
       - '8080:8080'
