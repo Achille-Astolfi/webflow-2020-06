@@ -17,6 +17,7 @@ public class WebFlowApplication {
 			baseDir = "/var/tmp/tomcat";
 		} else {
 			baseDir = new File(resource.getPath().substring(1).replace('/', File.separatorChar)).getParent();
+			baseDir = baseDir.replace("%20", " ");
 			webappsDir = baseDir;
 		}
 		tomcat.setBaseDir(baseDir);
