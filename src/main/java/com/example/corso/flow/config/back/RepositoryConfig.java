@@ -1,8 +1,10 @@
 package com.example.corso.flow.config.back;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -13,15 +15,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.example.corso.flow.repo")
+@PropertySource("classpath:/application.properties")
 public class RepositoryConfig {
 	@Bean
 	@DependsOn({ "persistenceExceptionTranslationPostProcessor", "persistenceAnnotationBeanPostProcessor" })
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(
+			@Value("${persistence.unit.name}") String persistenceUnitName) {
 		LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
-		bean.setPersistenceUnitName("availability");
+		bean.setPersistenceUnitName(persistenceUnitName);
 		return bean;
 	}
-	
+
 	@Bean
 	@DependsOn("entityManagerFactory")
 	public JpaTransactionManager transactionManager() {
